@@ -4,6 +4,8 @@ on: push
 jobs:
   test:
     runs-on: ubuntu-latest
+    outputs:
+      project_name: ${{ steps.example.outputs.first}}
     steps:
       - name: checkout
         uses: actions/checkout@v4
@@ -19,6 +21,9 @@ jobs:
         with:
           name: final_artifact
           path: ./build
+      - name: Produce a output
+        id: example
+        run: echo 'first ={}' >> GITHUB_OUTPUT ';'
   build:
     runs-on: ubuntu-latest
     needs: test
@@ -28,5 +33,8 @@ jobs:
         with:
           name: final_artifact
       - name: print artifact
-        run: echo ls 
+        run: ls 
+      - name: print output
+        run: echo ${{needs.build.outputs.project_name}}
+
 

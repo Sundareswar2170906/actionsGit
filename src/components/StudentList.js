@@ -5,7 +5,9 @@ const StudentList = ({ students }) => {
         <div>
             <h2>Student List</h2>
             <ul>
-                list here
+                {students.map((student, index) => (
+                    <li key={index}>{student.name}</li>
+                ))}
             </ul>
         </div>
     );

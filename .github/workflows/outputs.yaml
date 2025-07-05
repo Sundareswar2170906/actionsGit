@@ -1,0 +1,24 @@
+name: Outputs Demo
+on: push
+
+jobs:
+    res:
+        runs-on: ubuntu-latest
+        outputs:
+            result1: ${{ steps.cat1.outputs.first }}
+            result2: ${{ steps.cat2.outputs.second }}
+        steps:
+            - name: output
+              id: cat1
+              run: echo first=human >> $GITHUB_OUTPUT
+            - name: second output
+              id: cat2
+              run: echo second=cat >> $GITHUB_OUTPUT
+    print:
+        needs: res
+        runs-on: ubuntu-latest
+        steps:
+            - name: print labels
+              run: |
+                echo ${{ needs.res.outputs.result1 }}
+                echo ${{ needs.res.outputs.result2 }}

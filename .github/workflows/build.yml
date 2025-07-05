@@ -35,6 +35,6 @@ jobs:
       - name: print artifact
         run: ls 
       - name: print output
-        run: echo ${{needs.build.outputs.project_name}}
+        run: echo ${{needs.test.outputs.project_name}}
 
 

@@ -12,6 +12,7 @@ jobs:
         run: echo "first=output1" >> "$GITHUB_OUTPUT"
   input:
     runs-on: ubuntu-latest
+    needs: output
     steps:
       - name : print output
         run: echo ${{needs.output.outputs.output1}}

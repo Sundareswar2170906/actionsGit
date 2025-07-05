@@ -4,7 +4,7 @@ on: push
 jobs:
   output:
     outputs:
-      output1: ${{steps.new.outputs.first}}
+      output1: ${{ steps.new.outputs.first }}
     runs-on: ubuntu-latest
     steps:
       - name: send output
@@ -15,4 +15,4 @@ jobs:
     needs: output
     steps:
       - name : print output
-        run: echo ${{needs.output.outputs.output1}}
+        run: echo ${{ needs.output.outputs.output1 }}

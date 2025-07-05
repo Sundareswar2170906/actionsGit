@@ -23,7 +23,7 @@ jobs:
           path: ./build
       - name: Produce a output
         id: example
-        run: echo 'first = Hello' >> GITHUB_OUTPUT ';'
+        run: echo "first = Hello" >> "GITHUB_OUTPUT" ';'
   build:
     runs-on: ubuntu-latest
     needs: test

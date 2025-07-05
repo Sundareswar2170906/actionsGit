@@ -1,40 +1,17 @@
-name: Build and Test
+name: Send Outputs
 on: push
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
+  output:
     outputs:
-      project_name: ${{ steps.example.outputs.first}}
-    steps:
-      - name: checkout
-        uses: actions/checkout@v4
-      - name: setup node
-        uses: actions/setup-node@v4
-        with: 
-          node-version: 20
-      - run: npm i
-      - name: build
-        run: npm run build
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: final_artifact
-          path: ./build
-      - name: Produce a output
-        id: example
-        run: echo "first=Hello" >> "$GITHUB_OUTPUT" ';'
-  build:
+      output1: ${{steps.new.outputs.first}}
     runs-on: ubuntu-latest
-    needs: test
     steps:
-      - name: download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: final_artifact
-      - name: print artifact
-        run: ls 
-      - name: print output
-        run: echo ${{needs.test.outputs.project_name}}
-
-
+      - name: send output
+        id: new
+        run: echo "first=output1" >> "$GITHUB_OUTPUT"
+  input:
+    runs-on: ubuntu-latest
+    steps:
+      - name : print output
+        run: echo ${{needs.output.outputs.output1}}

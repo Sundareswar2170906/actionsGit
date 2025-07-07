@@ -1,0 +1,13 @@
+name: Echo Target Action
+description: A composite action that echoes an input value
+
+inputs:
+  build-target:
+    description: "The build target"
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Echo the build target
+      run: echo "Target is $INPUT_BUILD_TARGET"

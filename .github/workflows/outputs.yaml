@@ -1,21 +1,19 @@
-name: input variables
-on: 
+name: Test Echo Target Action
+
+on:
+  push:
+    branches: [main]
   workflow_dispatch:
-    inputs:
-      env_name:
-        required: true
-        type: choice
-        options: 
-        - monalisa
-        - cschleiden
 
 jobs:
-    res:
-        runs-on: ubuntu-latest
-        steps:
-            - name: output1
-              run: echo "1. $INPUT_ENV_NAME"
-            - name: output2
-              run: echo "2. $ENV_NAME"
-            - name: output3
-              run: echo "3. $env_name"
+  test-echo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Call the composite action
+        uses: ./.github/actions/echo-target
+        with:
+          build-target: staging

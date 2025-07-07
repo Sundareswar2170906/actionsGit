@@ -1,5 +1,9 @@
 name: Outputs Demo
-on: push
+on: 
+  workflow_dispatch:
+    inputs:
+      env_name:
+        required: true
 
 jobs:
     res:

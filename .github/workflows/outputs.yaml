@@ -4,6 +4,10 @@ on:
     inputs:
       env_name:
         required: true
+        type: choice
+        options: 
+        - monalisa
+        - cschleiden
 
 jobs:
     res:

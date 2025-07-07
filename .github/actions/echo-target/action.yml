@@ -10,5 +10,5 @@ runs:
   using: "composite"
   steps:
     - name: Echo the build target
-      run: echo "Target is $INPUT_BUILD_TARGET"
+      run: echo "Target is $BUILD_TARGET"
       shell: bash

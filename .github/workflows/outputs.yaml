@@ -14,8 +14,8 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: output1
-              run: echo $INPUT_ENV_NAME
+              run: echo "$INPUT_ENV_NAME"
             - name: output2
-              run: echo $ENV_NAME
+              run: echo "$ENV_NAME"
             - name: output3
-              run: echo $env_name
+              run: echo "$env_name"

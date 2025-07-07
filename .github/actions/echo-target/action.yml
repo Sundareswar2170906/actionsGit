@@ -11,3 +11,4 @@ runs:
   steps:
     - name: Echo the build target
       run: echo "Target is $INPUT_BUILD_TARGET"
+      shell: bash

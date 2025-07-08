@@ -4,7 +4,7 @@ on: workflow_dispatch
 jobs:
   input:
     runs-on: ubuntu-latest
-    environment: QA
+    environment: PROD
     steps:
       - name: Base64-encoded secret for debug
         run: |

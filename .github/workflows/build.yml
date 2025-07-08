@@ -2,17 +2,11 @@ name: Send Outputs
 on: workflow_dispatch
 
 jobs:
-  output:
-    outputs:
-      output1: ${{ steps.new.outputs.first }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: send output
-        id: new
-        run: echo "first=output1" >> "$GITHUB_OUTPUT"
   input:
     runs-on: ubuntu-latest
-    needs: output
+    environment: QA
     steps:
-      - name : print output
-        run: echo ${{ needs.output.outputs.output1 }}
+      - name: Base64-encoded secret for debug
+        run: |
+          echo "Base64 of secret:"
+          echo "${{ secrets.PASS }}" | base64

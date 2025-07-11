@@ -6,21 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: first step
-        run: |
-          echo "::group::first_step"
-          echo "start"
-          echo "running"
-          echo "closed"
-          echo "::endgroup::"
-          echo "::group::second step"
-          echo "start"
-          echo "running"
-          echo "closed"
-          echo "::endgroup::"
-      - name: third step
-        run: |
-          echo "::group::third step"
-          echo "start"
-          echo "running"
-          echo "closed"
-          echo "::endgroup::"
+        run: echo $GITHUB_EVENT_PATH

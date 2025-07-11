@@ -5,5 +5,5 @@ jobs:
   input:
     runs-on: ubuntu-latest
     steps:
-      - name: first step
-        run: echo $GITHUB_EVENT_PATH
+      - name: Dump event payload
+        run: cat $GITHUB_EVENT_PATH

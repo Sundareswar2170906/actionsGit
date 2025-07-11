@@ -12,9 +12,14 @@ jobs:
           echo "running"
           echo "closed"
           echo "::endgroup::"
-      - name: second step
-        run: |
           echo "::group::second step"
+          echo "start"
+          echo "running"
+          echo "closed"
+          echo "::endgroup::"
+      - name: third step
+        run: |
+          echo "::group::third step"
           echo "start"
           echo "running"
           echo "closed"

@@ -4,9 +4,18 @@ on: workflow_dispatch
 jobs:
   input:
     runs-on: ubuntu-latest
-    environment: PROD
     steps:
-      - name: Base64-encoded secret for debug
+      - name: first step
         run: |
-          echo "Base64 of secret:"
-          echo "${{ secrets.PASS }}" | base64
+          echo "::group::first_step"
+          echo "start"
+          echo "running"
+          echo "closed"
+          echo "::endgroup::"
+      - name: second step
+        run: |
+          echo "::group::second step"
+          echo "start"
+          echo "running"
+          echo "closed"
+          echo "::endgroup::"
